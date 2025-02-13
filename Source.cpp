@@ -1,3 +1,4 @@
+#include <iostream>
 import ImageExtracter;
 import ProcessParallelization;
 import <string>;
@@ -17,8 +18,6 @@ auto main(int args, char* arguments[]) -> int
 	unsigned int imageSize{};
 	std::cout << "Type in image width and height" << std::endl;
 	std::cin >> imageSize;
-
-	auto start = std::chrono::steady_clock::now();
 
 	ImageExtracter extracter(imageSize);
 
@@ -62,8 +61,6 @@ auto main(int args, char* arguments[]) -> int
 		};
 
 	Parallel_For(pathsPng, func);
-
-	auto end = std::chrono::steady_clock::now();
 
 	std::cout << "Elements: " << extracter.GetHashedImages() << std::endl;
 	do
