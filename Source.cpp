@@ -1,4 +1,3 @@
-#include <iostream>
 import ImageExtracter;
 import ProcessParallelization;
 import <string>;
@@ -69,6 +68,10 @@ auto main(int args, char* arguments[]) -> int
 		std::cin >> imagePath;
 		ErrorType error{};
 		auto newImage = extracter.CreatePixelatedPicture(LoadImageFile(imagePath, error));
-		WriteImage(newImage, imagePath, error);
+		auto parentPath = std::filesystem::path(imagePath.c_str()).parent_path().string();
+		if (WriteImage(newImage, parentPath + "\\copy.png", error); error != ErrorType::NO_ERROR)
+		{
+			std::cout << GetErrorString(error) << std::endl;
+		}
 	} while (imagePath != "end");
 }

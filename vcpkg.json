@@ -1,0 +1,8 @@
+{
+  "name": "imagehandler",
+  "dependencies": [
+    "magic-enum",
+    "stb",
+    "gtest"
+  ]
+}
